@@ -23,7 +23,7 @@ const icons: Record<string, LucideIcon> = {
 
 export function ProcessTimeline() {
   return (
-    <section id="process" className="scroll-mt-24 bg-navy py-24 text-background">
+    <section id="process" className="scroll-mt-24 bg-navy py-24 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">

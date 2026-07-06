@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X, Zap } from 'lucide-react'
 import { nav, profile } from '@/lib/portfolio-data'
 import { RippleButton } from '@/components/ripple-button'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { cn } from '@/lib/utils'
 
 export function Navbar() {
@@ -49,20 +50,24 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <RippleButton href="#contact" className="px-5 py-2.5">
             Book Discovery Call
           </RippleButton>
         </div>
 
-        <button
-          className="inline-flex size-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-secondary md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            className="inline-flex size-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-secondary"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </nav>
 
       {open && (

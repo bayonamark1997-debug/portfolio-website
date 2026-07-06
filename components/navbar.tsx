@@ -1,0 +1,93 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { Menu, X, Zap } from 'lucide-react'
+import { nav, profile } from '@/lib/portfolio-data'
+import { RippleButton } from '@/components/ripple-button'
+import { cn } from '@/lib/utils'
+
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        scrolled ? 'py-3' : 'py-5',
+      )}
+    >
+      <nav
+        className={cn(
+          'mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 transition-all duration-300 sm:px-6',
+          scrolled ? 'glass border border-border/70 py-2.5 shadow-sm' : 'py-1',
+        )}
+      >
+        <a href="#top" className="flex items-center gap-2.5 font-semibold tracking-tight">
+          <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <Zap className="size-4" aria-hidden="true" />
+          </span>
+          <span className="text-[0.95rem]">{profile.name}</span>
+        </a>
+
+        <div className="hidden items-center gap-1 md:flex">
+          {nav.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="hidden md:block">
+          <RippleButton href="#contact" className="px-5 py-2.5">
+            Book Discovery Call
+          </RippleButton>
+        </div>
+
+        <button
+          className="inline-flex size-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-secondary md:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+        >
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
+      </nav>
+
+      {open && (
+        <div className="mx-4 mt-2 rounded-2xl glass border border-border/70 p-3 shadow-lg md:hidden">
+          <div className="flex flex-col">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="mt-2 rounded-xl bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground"
+            >
+              Book Discovery Call
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}

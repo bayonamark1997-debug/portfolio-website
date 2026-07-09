@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import { Mail, MapPin, CalendarCheck, Send, CheckCircle2 } from 'lucide-react'
+import { Mail, MapPin, CalendarCheck, Send, CheckCircle2, Loader2 } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { RippleButton } from '@/components/ripple-button'
 import { LinkedInIcon } from '@/components/linkedin-icon'
 import { profile } from '@/lib/portfolio-data'
+import { openCalendly } from '@/lib/calendly'
 
 const details = [
   { icon: Mail, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
@@ -15,10 +16,36 @@ const details = [
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError(null)
+    setIsSubmitting(true)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    formData.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '')
+    formData.append('subject', `New portfolio inquiry from ${formData.get('name')}`)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setError('Something went wrong sending your message. Please try emailing me directly instead.')
+      }
+    } catch {
+      setError('Something went wrong sending your message. Please try emailing me directly instead.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -48,13 +75,14 @@ export function Contact() {
                 automation opportunities.
               </p>
               <div className="mt-6">
-                <a
-                  href={`mailto:${profile.email}?subject=Discovery%20Call%20Request`}
+                <button
+                  type="button"
+                  onClick={openCalendly}
                   className="inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-md transition-transform duration-300 hover:-translate-y-0.5"
                 >
                   <CalendarCheck className="size-4" aria-hidden="true" />
                   Schedule Now
-                </a>
+                </button>
               </div>
             </div>
 
@@ -123,9 +151,22 @@ export function Contact() {
                       className="resize-none rounded-2xl border border-input bg-background px-4 py-3 text-sm shadow-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
-                  <RippleButton type="submit" className="w-full sm:w-auto">
-                    Send Message
-                    <Send className="size-4" aria-hidden="true" />
+                  {error && (
+                    <p className="text-sm font-medium text-destructive">{error}</p>
+                  )}
+
+                  <RippleButton type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        Sending...
+                        <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="size-4" aria-hidden="true" />
+                      </>
+                    )}
                   </RippleButton>
                 </form>
               )}

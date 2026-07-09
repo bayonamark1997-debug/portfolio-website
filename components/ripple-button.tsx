@@ -20,11 +20,13 @@ interface RippleButtonProps {
   className?: string
   type?: 'button' | 'submit'
   onClick?: () => void
+  disabled?: boolean
 }
 
 export const RippleButton = forwardRef<HTMLElement, RippleButtonProps>(
-  ({ children, href, variant = 'primary', className, type = 'button', onClick }, _ref) => {
+  ({ children, href, variant = 'primary', className, type = 'button', onClick, disabled = false }, _ref) => {
     const createRipple = (e: MouseEvent<HTMLElement>) => {
+      if (disabled) return
       const target = e.currentTarget
       const circle = document.createElement('span')
       const diameter = Math.max(target.clientWidth, target.clientHeight)
@@ -41,6 +43,7 @@ export const RippleButton = forwardRef<HTMLElement, RippleButtonProps>(
     const classes = cn(
       'group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
       variants[variant],
+      disabled && 'pointer-events-none opacity-60',
       className,
     )
 
@@ -53,7 +56,12 @@ export const RippleButton = forwardRef<HTMLElement, RippleButtonProps>(
     }
 
     return (
-      <button type={type} className={classes} onClick={(e) => { createRipple(e); onClick?.() }}>
+      <button
+        type={type}
+        disabled={disabled}
+        className={classes}
+        onClick={(e) => { createRipple(e); onClick?.() }}
+      >
         {children}
       </button>
     )

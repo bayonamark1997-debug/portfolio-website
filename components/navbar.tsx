@@ -6,6 +6,7 @@ import { nav, profile } from '@/lib/portfolio-data'
 import { RippleButton } from '@/components/ripple-button'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { cn } from '@/lib/utils'
+import { openCalendly } from '@/lib/calendly'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -52,8 +53,8 @@ export function Navbar() {
 
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
-          <RippleButton href="#contact" className="px-5 py-2.5">
-            Book Discovery Call
+          <RippleButton onClick={openCalendly} className="px-5 py-2.5">
+            Book a Discovery Call
           </RippleButton>
         </div>
 
@@ -83,13 +84,15 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
+            <button
+              onClick={() => {
+                setOpen(false)
+                openCalendly()
+              }}
               className="mt-2 rounded-xl bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground"
             >
-              Book Discovery Call
-            </a>
+              Book a Discovery Call
+            </button>
           </div>
         </div>
       )}

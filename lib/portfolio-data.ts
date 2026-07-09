@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Mark Evander J. Bayona',
-  title: 'AI Automation Specialist | Workflow Automation Consultant',
+  title: 'AI & Business Systems Specialist | Workflow Automation Consultant',
   email: 'markevanderbayona@gmail.com',
   linkedin: 'linkedin.com/in/markbayona',
   linkedinUrl: 'https://linkedin.com/in/markbayona',
@@ -11,17 +11,48 @@ export const nav = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Process', href: '#process' },
   { label: 'Stack', href: '#stack' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export const stats = [
-  { value: 6, suffix: '+', label: 'Years Operations Experience' },
-  { value: 3, suffix: '', label: 'AI Automation Projects' },
-  { value: 5, suffix: 'hrs', label: 'Saved Per Week Per Workflow' },
-  { value: 4, suffix: '', label: 'No-Code Automation Certifications' },
+  {
+    value: 1.5,
+    suffix: '+',
+    label: 'Years in Workforce Management',
+  },
+  {
+    value: 100,
+    suffix: '%',
+    label: 'Focused on Business Efficiency',
+  },
 ]
+
+export const highlights = [
+  {
+    icon: 'BriefcaseBusiness',
+    value: '1.5+',
+    title: 'Years in Workforce Management',
+  },
+  {
+    icon: 'Bot',
+    value: 'AI',
+    title: 'Automation & Business Systems',
+  },
+  {
+    icon: 'Workflow',
+    value: 'No-Code',
+    title: 'Zapier, Make & n8n',
+  },
+  {
+    icon: 'Zap',
+    value: '100%',
+    title: 'Focused on Business Efficiency',
+  },
+]
+
 
 export const services = [
   {
@@ -103,8 +134,8 @@ export const projects = [
     solution:
       'Built an automated workflow that enriches lead data, scores opportunities, generates personalized outreach drafts, and alerts the sales team the moment high-value leads appear.',
     workflow: ['New lead', 'Enrich data', 'Score & prioritize', 'Draft outreach', 'Notify sales'],
-    tools: ['Zapier', 'OpenAI', 'SQL', 'APIs'],
-    impact: 'Cut manual lead-qualification time by an estimated 60% — roughly 5 hours saved per week.',
+    tools: ['Zapier', 'OpenAI', 'Airtable', 'APIs'],
+    impact: 'Designed to cut manual lead-qualification time significantly by automating research and prioritization that previously took hours each week.',
     accent: 'from-emerald-500/15',
   },
   {
@@ -114,18 +145,28 @@ export const projects = [
       'Built a context-aware AI chatbot with conversation memory and knowledge retrieval that handles customer conversations automatically.',
     workflow: ['Incoming message', 'Understand intent', 'Retrieve knowledge', 'Respond', 'Escalate if needed'],
     tools: ['n8n', 'Google Gemini', 'Facebook Graph API', 'Webhooks'],
-    impact: 'Resolves an estimated 70% of routine inquiries without human intervention — 24/7 support.',
+    impact: 'Handles routine customer inquiries automatically, day or night, without waiting on a live agent.',
     accent: 'from-teal-500/15',
   },
   {
     name: 'Financial Reporting Automation',
-    problem: 'Manual financial reporting consumed 3–4 hours every single week.',
+    problem: 'Manual financial reporting was time-consuming and repeated every single week.',
     solution:
       'Automated report extraction, CSV generation, and delivery straight into Asana — replacing a fully manual reporting process.',
     workflow: ['Pull from Xero', 'Format data', 'Generate CSV', 'Deliver to Asana'],
     tools: ['Make', 'Xero', 'CSV', 'Asana'],
-    impact: 'Eliminated 3–4 hours of repetitive reporting work per week and improved consistency.',
+    impact: 'Replaced a fully manual weekly reporting process with a consistent, hands-off automated one.',
     accent: 'from-emerald-500/15',
+  },
+  {
+    name: 'AI Document Processing Workflow',
+    problem: 'Incoming email attachments pile up and require manual sorting, renaming, and filing.',
+    solution:
+      'Built a workflow that analyzes incoming email attachments with AI, generates descriptive filenames, files them into Google Drive, and logs everything automatically with built-in notifications.',
+    workflow: ['Incoming attachment', 'Analyze with AI', 'Generate filename', 'Upload to Drive', 'Log & notify'],
+    tools: ['Make', 'OpenAI', 'Google Drive', 'Google Sheets'],
+    impact: 'Removes manual sorting and filing work entirely — incoming documents get organized and logged without anyone touching them.',
+    accent: 'from-amber-500/15',
   },
 ]
 
@@ -144,7 +185,7 @@ export const techStack = [
   { category: 'Automation', items: ['Zapier', 'Make', 'n8n'] },
   { category: 'CRM', items: ['GoHighLevel'] },
   { category: 'Productivity', items: ['Google Workspace', 'Microsoft 365', 'Notion', 'Asana'] },
-  { category: 'Database', items: ['Google Sheets', 'Airtable', 'SQL'] },
+  { category: 'Database', items: ['Google Sheets', 'Airtable'] },
 ]
 
 export const industries = [
@@ -159,7 +200,7 @@ export const industries = [
 ]
 
 export const aboutPoints = [
-  'Former Workforce Management Specialist and Real-Time Analyst with 6+ years optimizing operations and performance.',
+  'Former Workforce Management Specialist and Real-Time Analyst with hands-on experience optimizing operations and performance for 150+ agent teams.',
   'Experienced in process improvement, capacity planning, reporting, workforce analytics, and operational efficiency.',
   'Business owner with hands-on experience managing service operations and logistics.',
   'Now focused on helping businesses automate repetitive work using AI and no-code automation.',

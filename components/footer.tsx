@@ -1,4 +1,4 @@
-import { Zap, Mail } from 'lucide-react'
+import { Zap, Mail, Briefcase, Globe } from 'lucide-react'
 import { LinkedInIcon } from '@/components/linkedin-icon'
 import { profile, nav } from '@/lib/portfolio-data'
 
@@ -20,8 +20,10 @@ export function Footer() {
             </p>
             <div className="mt-5 flex gap-3">
               <a
-                href={`mailto:${profile.email}`}
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
                 aria-label="Email"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
                 <Mail className="size-4" />
@@ -29,9 +31,29 @@ export function Footer() {
               <a
                 href={profile.linkedinUrl}
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
                 <LinkedInIcon className="size-4" />
+              </a>
+              <a
+                href={profile.upworkUrl}
+                aria-label="Upwork"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <Briefcase className="size-4" />
+              </a>
+              <a
+                href={profile.onlineJobsUrl}
+                aria-label="OnlineJobs.ph"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <Globe className="size-4" />
               </a>
             </div>
           </div>

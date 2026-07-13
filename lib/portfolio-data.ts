@@ -4,6 +4,8 @@ export const profile = {
   email: 'markevanderbayona@gmail.com',
   linkedin: 'linkedin.com/in/markbayona',
   linkedinUrl: 'https://linkedin.com/in/markbayona',
+  upworkUrl: 'https://www.upwork.com/freelancers/~0130f36d461a823fdd?mp_source=share',
+  onlineJobsUrl: 'https://v2.onlinejobs.ph/jobseekers/info/4486544',
   location: 'Bulacan, Philippines',
 }
 

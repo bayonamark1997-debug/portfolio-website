@@ -9,11 +9,14 @@ import {
 } from 'lucide-react'
 
 import { Counter } from '@/components/counter'
+import { GlitchText } from '@/components/glitch-text'
+import { PopIn } from '@/components/pop-in'
 
 const cards = [
   {
     icon: BriefcaseBusiness,
-    value: '1.5+',
+    value: '2+',
+    pop: true,
     title: 'Years in Workforce Management',
     description:
       'Real experience improving operations, processes, and customer service.',
@@ -21,14 +24,14 @@ const cards = [
   {
     icon: Bot,
     value: 'AI',
-    title: 'Automation & Business Systems',
+    title: 'AI Chatbots & Workflow Agents',
     description:
-      'Building AI workflows using n8n, Make, Zapier, and modern AI tools.',
+      'Building context-aware AI systems using prompt engineering and modern AI tools.',
   },
   {
     icon: Workflow,
     value: 'No-Code',
-    title: 'Zapier, Make & n8n',
+    title: 'n8n, Zapier & Make',
     description:
       'Automating leads, follow-ups, pipelines, and customer journeys.',
   },
@@ -45,8 +48,9 @@ const cards = [
 export function HighlightCards() {
   return (
     <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {cards.map((card) => {
+      {cards.map((card, i) => {
         const Icon: LucideIcon = card.icon
+        const delayMs = i * 150
 
         return (
           <div
@@ -61,9 +65,11 @@ export function HighlightCards() {
 
             <h3 className="mt-6 text-3xl font-bold tracking-tight">
               {typeof card.value === 'number' ? (
-                <Counter value={card.value} suffix={card.suffix ?? ''} />
+                <Counter value={card.value} suffix={card.suffix ?? ''} delayMs={delayMs} />
+              ) : card.pop ? (
+                <PopIn delayMs={delayMs}>{card.value}</PopIn>
               ) : (
-                card.value
+                <GlitchText text={card.value} delayMs={delayMs} />
               )}
             </h3>
 

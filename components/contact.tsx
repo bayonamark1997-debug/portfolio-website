@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import { Mail, MapPin, CalendarCheck, Send, CheckCircle2, Loader2, Briefcase, Globe, ExternalLink } from 'lucide-react'
+import { Mail, MapPin, CalendarCheck, Send, CheckCircle2, Loader2, Globe, ExternalLink } from 'lucide-react'
+import { FaUpwork } from 'react-icons/fa6'
 import { Reveal } from '@/components/reveal'
 import { RippleButton } from '@/components/ripple-button'
 import { LinkedInIcon } from '@/components/linkedin-icon'
@@ -11,7 +12,7 @@ import { openCalendly } from '@/lib/calendly'
 const details = [
   { icon: Mail, label: 'Email', value: profile.email, href: `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`, external: true },
   { icon: LinkedInIcon, label: 'LinkedIn', value: 'View my LinkedIn profile', href: profile.linkedinUrl, external: true },
-  { icon: Briefcase, label: 'Upwork', value: 'View my Upwork profile', href: profile.upworkUrl, external: true },
+  { icon: FaUpwork, label: 'Upwork', value: 'View my Upwork profile', href: profile.upworkUrl, external: true },
   { icon: Globe, label: 'OnlineJobs.ph', value: 'View my OnlineJobs.ph profile', href: profile.onlineJobsUrl, external: true },
   { icon: MapPin, label: 'Location', value: profile.location, href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Bulacan, Philippines')}`, external: true },
 ]

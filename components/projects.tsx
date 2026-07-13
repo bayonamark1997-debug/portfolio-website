@@ -21,9 +21,13 @@ export function Projects() {
           {projects.map((project, i) => (
             <Reveal
               key={project.name}
-              className="group overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-xl"
             >
-              <div className="grid lg:grid-cols-2">
+              <div
+                aria-hidden="true"
+                className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${project.accent} to-transparent opacity-60`}
+              />
+              <div className="relative grid lg:grid-cols-2">
                 {/* content */}
                 <div className="order-2 p-8 lg:order-1 lg:p-10">
                   <div className="flex items-center gap-3">

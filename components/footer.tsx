@@ -1,4 +1,5 @@
-import { Zap, Mail, Briefcase, Globe } from 'lucide-react'
+import { Zap, Mail, Globe } from 'lucide-react'
+import { FaUpwork } from 'react-icons/fa6'
 import { LinkedInIcon } from '@/components/linkedin-icon'
 import { profile, nav } from '@/lib/portfolio-data'
 
@@ -44,7 +45,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
-                <Briefcase className="size-4" />
+                <FaUpwork className="size-4" />
               </a>
               <a
                 href={profile.onlineJobsUrl}

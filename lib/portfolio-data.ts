@@ -19,43 +19,6 @@ export const nav = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export const stats = [
-  {
-    value: 1.5,
-    suffix: '+',
-    label: 'Years in Workforce Management',
-  },
-  {
-    value: 100,
-    suffix: '%',
-    label: 'Focused on Business Efficiency',
-  },
-]
-
-export const highlights = [
-  {
-    icon: 'BriefcaseBusiness',
-    value: '1.5+',
-    title: 'Years in Workforce Management',
-  },
-  {
-    icon: 'Bot',
-    value: 'AI',
-    title: 'Automation & Business Systems',
-  },
-  {
-    icon: 'Workflow',
-    value: 'No-Code',
-    title: 'Zapier, Make & n8n',
-  },
-  {
-    icon: 'Zap',
-    value: '100%',
-    title: 'Focused on Business Efficiency',
-  },
-]
-
-
 export const services = [
   {
     title: 'AI Workflow Automation',
@@ -156,7 +119,7 @@ export const projects = [
     solution:
       'Automated report extraction, CSV generation, and delivery straight into Asana — replacing a fully manual reporting process.',
     workflow: ['Pull from Xero', 'Format data', 'Generate CSV', 'Deliver to Asana'],
-    tools: ['Make', 'Xero', 'CSV', 'Asana'],
+    tools: ['Make', 'Xero', 'Asana'],
     impact: 'Replaced a fully manual weekly reporting process with a consistent, hands-off automated one.',
     accent: 'from-emerald-500/15',
   },
@@ -186,8 +149,9 @@ export const techStack = [
   { category: 'AI', items: ['ChatGPT', 'Gemini', 'Claude'] },
   { category: 'Automation', items: ['Zapier', 'Make', 'n8n'] },
   { category: 'CRM', items: ['GoHighLevel'] },
+  { category: 'Integrations', items: ['Calendly', 'Slack', 'Xero', 'Apollo', 'Gmail', 'Google Drive', 'Facebook Graph API'] },
   { category: 'Productivity', items: ['Google Workspace', 'Microsoft 365', 'Notion', 'Asana'] },
-  { category: 'Database', items: ['Google Sheets', 'Airtable'] },
+  { category: 'Database', items: ['Google Sheets'] },
 ]
 
 export const industries = [

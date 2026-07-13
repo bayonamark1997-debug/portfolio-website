@@ -63,7 +63,7 @@ export function Hero() {
               </RippleButton>
 
               <a
-                href="https://docs.google.com/document/d/1HBTvXdsgc_iFS0HMr8YHZTav1ZfXphmdE3W14NWo-R0/edit?tab=t.0"
+                href="https://docs.google.com/document/d/1HBTvXdsgc_iFS0HMr8YHZTav1ZfXphmdE3W14NWo-R0/preview"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -129,14 +129,14 @@ export const services = [
 
 export const projects = [
   {
-    name: 'AI Lead Enrichment & Scoring System',
-    problem: 'Sales teams spend hours manually researching and qualifying leads.',
+    name: 'Clinic Booking & AI Messenger Automation System',
+    problem: 'A skincare clinic managed bookings by hand — appointments got logged inconsistently, reminders were easy to forget, and Messenger inquiries could sit unanswered for hours.',
     solution:
-      'Built an automated workflow that enriches lead data, scores opportunities, generates personalized outreach drafts, and alerts the sales team the moment high-value leads appear.',
-    workflow: ['New lead', 'Enrich data', 'Score & prioritize', 'Draft outreach', 'Notify sales'],
-    tools: ['Zapier', 'OpenAI', 'Airtable', 'APIs'],
-    impact: 'Designed to cut manual lead-qualification time significantly by automating research and prioritization that previously took hours each week.',
-    accent: 'from-emerald-500/15',
+      'Built a connected automation system: an AI chatbot that answers Messenger inquiries and captures booking requests using conversation memory and a grounded knowledge base, paired with a Calendly-driven pipeline that logs every booking, sends SMS confirmations and 24-hour reminders, updates records automatically on cancellation, and notifies staff by email at every key step.',
+    workflow: ['New inquiry or booking', 'AI Agent / Calendly capture', 'Log to Google Sheets', 'Notify staff', 'SMS confirmation & reminder'],
+    tools: ['n8n', 'Google Gemini', 'Facebook Graph API', 'Calendly API', 'Google Sheets', 'Semaphore SMS', 'Gmail'],
+    impact: 'Designed to remove manual booking follow-up entirely — staff get instant visibility into every new booking, cancellation, and customer inquiry, with no appointment relying on someone remembering to log it.',
+    accent: 'from-sky-500/15',
   },
   {
     name: 'Facebook Messenger AI Agent',

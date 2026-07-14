@@ -26,7 +26,7 @@ export function ProcessTimeline() {
     <section id="process" className="scroll-mt-24 bg-navy py-16 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+          <p className="text-sm font-semibold uppercase tracking-wider text-blue-400">
             My Automation Process
           </p>
           <h2 className="mt-3 text-balance font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -50,7 +50,7 @@ export function ProcessTimeline() {
                 y1="0"
                 x2="100%"
                 y2="0"
-                stroke="var(--primary)"
+                stroke="#60a5fa"
                 strokeWidth="2"
                 className="animate-dash hidden lg:block"
                 opacity="0.5"
@@ -69,7 +69,7 @@ export function ProcessTimeline() {
                     </span>
                   </div>
                   <div className="ml-5 lg:ml-0 lg:mt-4">
-                    <span className="text-xs font-semibold text-primary">Step {i + 1}</span>
+                    <span className="text-xs font-semibold text-blue-400">Step {i + 1}</span>
                     <h3 className="mt-1 font-semibold tracking-tight text-white">{step.title}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-white/55">{step.desc}</p>
                   </div>

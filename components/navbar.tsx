@@ -10,10 +10,16 @@ import { openCalendly } from '@/lib/calendly'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [pastHero, setPastHero] = useState(false)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12)
+      // Nav CTA only appears once the hero's own CTA is out of view,
+      // so the two Book a Discovery Call buttons never show at once.
+      setPastHero(window.scrollY > 520)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -53,8 +59,14 @@ export function Navbar() {
 
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
-          <RippleButton onClick={openCalendly} className="px-5 py-2.5">
-            Book a Discovery Call
+          <RippleButton
+            onClick={openCalendly}
+            className={cn(
+              'overflow-hidden px-5 py-2.5 transition-all duration-300',
+              pastHero ? 'max-w-xs opacity-100' : 'pointer-events-none max-w-0 px-0 opacity-0',
+            )}
+          >
+            <span className="whitespace-nowrap">Book a Discovery Call</span>
           </RippleButton>
         </div>
 

@@ -43,8 +43,8 @@ export function Hero() {
             </span>
 
             <h1 className="mt-6 text-balance font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.6rem]">
-              AI automation built by someone who&apos;s{' '}
-              <span className="text-primary">actually run business operations.</span>
+              AI automation built by someone who&apos;s actually run{' '}
+              <span className="text-primary">business operations.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">

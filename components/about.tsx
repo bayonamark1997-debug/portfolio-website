@@ -1,4 +1,4 @@
-import { CheckCircle2, Brain, Route, Gauge, FileText } from 'lucide-react'
+import { CheckCircle2, Brain, Route, Gauge, FileText, ExternalLink } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { aboutPoints, profile } from '@/lib/portfolio-data'
 
@@ -55,10 +55,11 @@ export function About() {
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
             >
               <FileText className="size-4" aria-hidden="true" />
               View My Resume
+              <ExternalLink className="size-3.5" aria-hidden="true" />
             </a>
           </div>
         </Reveal>

@@ -46,7 +46,7 @@ export function TechStack() {
                 Who I work with.
               </h2>
             </Reveal>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="mt-8 grid gap-3">
               {industries.map((industry, i) => (
                 <Reveal
                   key={industry}

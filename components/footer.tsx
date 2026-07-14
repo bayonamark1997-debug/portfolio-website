@@ -1,13 +1,21 @@
 import { Zap, Mail, Globe } from 'lucide-react'
-import { FaUpwork } from 'react-icons/fa6'
 import { LinkedInIcon } from '@/components/linkedin-icon'
+import { FaUpwork } from 'react-icons/fa6'
 import { profile, nav } from '@/lib/portfolio-data'
+
+const navCol1 = nav.slice(0, 4)
+const navCol2 = nav.slice(4)
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="relative border-t border-border bg-background">
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
+      />
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
+          {/* brand */}
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5 font-semibold tracking-tight">
               <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
@@ -59,16 +67,30 @@ export function Footer() {
             </div>
           </div>
 
-          <nav className="grid grid-cols-2 gap-x-12 gap-y-2 sm:grid-cols-3" aria-label="Footer">
-            {nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </a>
-            ))}
+          {/* nav links, rebalanced 4 + 3, no orphan */}
+          <nav className="grid grid-cols-2 gap-x-14 gap-y-2" aria-label="Footer">
+            <div className="flex flex-col gap-2">
+              {navCol1.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+            <div className="flex flex-col gap-2">
+              {navCol2.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
           </nav>
         </div>
 

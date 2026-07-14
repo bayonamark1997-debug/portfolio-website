@@ -28,6 +28,10 @@ const icons: Record<string, LucideIcon> = {
   Lightbulb,
 }
 
+const fullRowCount = Math.floor(services.length / 3) * 3
+const fullRows = services.slice(0, fullRowCount)
+const remainder = services.slice(fullRowCount)
+
 export function Services() {
   return (
     <section id="services" className="scroll-mt-24 bg-secondary/40 py-24">
@@ -43,8 +47,9 @@ export function Services() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => {
+        <div className="mt-14">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {fullRows.map((service, i) => {
             const Icon = icons[service.icon] ?? Sparkles
             return (
               <Reveal
@@ -76,6 +81,44 @@ export function Services() {
               </Reveal>
             )
           })}
+          </div>
+
+          {remainder.length > 0 && (
+            <div className="mt-5 flex flex-wrap justify-center gap-5">
+              {remainder.map((service, i) => {
+                const Icon = icons[service.icon] ?? Sparkles
+                return (
+                  <Reveal
+                    key={service.title}
+                    delay={((fullRows.length + i) % 3) * 90}
+                    className="group relative flex h-full w-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)]"
+                  >
+                    <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Icon className="size-6" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-5 text-lg font-semibold tracking-tight">{service.title}</h3>
+
+                    <dl className="mt-4 space-y-3 text-sm">
+                      <div>
+                        <dt className="font-semibold text-foreground/60">Problem</dt>
+                        <dd className="mt-0.5 leading-relaxed text-muted-foreground">{service.problem}</dd>
+                      </div>
+                      <div>
+                        <dt className="font-semibold text-foreground/60">Solution</dt>
+                        <dd className="mt-0.5 leading-relaxed text-muted-foreground">{service.solution}</dd>
+                      </div>
+                    </dl>
+
+                    <div className="mt-auto flex items-start gap-2 pt-5 text-sm font-medium text-primary">
+                      <ArrowRight className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                      <span>{service.outcome}</span>
+                    </div>
+                  </Reveal>
+                )
+              })}
+            </div>
+          )}
         </div>
       </div>
     </section>

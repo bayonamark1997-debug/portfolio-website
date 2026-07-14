@@ -38,8 +38,8 @@ export function Services() {
             Automation built around business outcomes.
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Every engagement starts with the problem you&apos;re trying to solve — not the software.
-            Here&apos;s how I help businesses get hours back.
+            You don&apos;t need more software. You need someone who finds out where your time is
+            actually going — then removes it.
           </p>
         </Reveal>
 

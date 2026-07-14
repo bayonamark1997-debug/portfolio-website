@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   title: 'Mark Evander J. Bayona — AI Automation Specialist',
   description:
     'I build AI automation systems that save businesses hours every week. Workflow automation, CRM automation, AI chatbots, and process optimization using Zapier, Make, n8n, and GoHighLevel.',
-  generator: 'v0.app',
   openGraph: {
     title: 'Mark Evander J. Bayona — AI Automation Specialist',
     description:

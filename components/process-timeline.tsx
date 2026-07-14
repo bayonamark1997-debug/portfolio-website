@@ -23,7 +23,7 @@ const icons: Record<string, LucideIcon> = {
 
 export function ProcessTimeline() {
   return (
-    <section id="process" className="scroll-mt-24 bg-navy py-24 text-white">
+    <section id="process" className="scroll-mt-24 bg-navy py-16 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">
@@ -38,7 +38,7 @@ export function ProcessTimeline() {
           </p>
         </Reveal>
 
-        <div className="relative mt-16">
+        <div className="relative mt-12">
           {/* connecting line */}
           <div
             aria-hidden="true"
@@ -58,7 +58,7 @@ export function ProcessTimeline() {
             </svg>
           </div>
 
-          <ol className="grid gap-8 lg:grid-cols-7 lg:gap-4">
+          <ol className="grid gap-8 lg:grid-cols-5 lg:gap-4">
             {processSteps.map((step, i) => {
               const Icon = icons[step.icon] ?? Search
               return (

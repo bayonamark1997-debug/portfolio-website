@@ -1,47 +1,47 @@
 'use client'
 
 import {
-  Bot,
   BriefcaseBusiness,
   Workflow,
-  Zap,
+  Plug,
+  Store,
   type LucideIcon,
 } from 'lucide-react'
 
 import { Counter } from '@/components/counter'
-import { GlitchText } from '@/components/glitch-text'
-import { PopIn } from '@/components/pop-in'
 
 const cards = [
   {
     icon: BriefcaseBusiness,
-    value: '2+',
-    pop: true,
-    title: 'Years in Workforce Management',
+    value: 2,
+    suffix: '+',
+    title: 'Years in Operations',
     description:
-      'Real experience improving operations, processes, and customer service.',
-  },
-  {
-    icon: Bot,
-    value: 'AI',
-    title: 'AI Chatbots & Workflow Agents',
-    description:
-      'Building context-aware AI systems using prompt engineering and modern AI tools.',
+      'Workforce management and real-time analysis for 150+ agent teams.',
   },
   {
     icon: Workflow,
-    value: 'No-Code',
-    title: 'n8n, Zapier & Make',
+    value: 10,
+    suffix: '+',
+    title: 'Workflows Built',
     description:
-      'Automating leads, follow-ups, pipelines, and customer journeys.',
+      'Across n8n, Zapier, Make, and GoHighLevel — chatbots to booking systems.',
   },
   {
-    icon: Zap,
-    value: 100,
-    suffix: '%',
-    title: 'Focused on Business Efficiency',
+    icon: Plug,
+    value: 15,
+    suffix: '+',
+    title: 'Tools Integrated',
     description:
-      'Every automation is designed to save time and reduce manual work.',
+      'APIs, AI models, CRMs, SMS gateways, and the Google Workspace stack.',
+  },
+  {
+    icon: Store,
+    value: 3,
+    suffix: '',
+    title: 'Businesses Owned or Co-Owned',
+    description:
+      'I automate with an owner\u2019s instinct for where time and money leak.',
   },
 ]
 
@@ -64,13 +64,7 @@ export function HighlightCards() {
             </div>
 
             <h3 className="mt-6 text-3xl font-bold tracking-tight">
-              {typeof card.value === 'number' ? (
-                <Counter value={card.value} suffix={card.suffix ?? ''} delayMs={delayMs} />
-              ) : card.pop ? (
-                <PopIn delayMs={delayMs}>{card.value}</PopIn>
-              ) : (
-                <GlitchText text={card.value} delayMs={delayMs} />
-              )}
+              <Counter value={card.value} suffix={card.suffix} delayMs={delayMs} />
             </h3>
 
             <p className="mt-2 font-semibold">

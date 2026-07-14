@@ -1,94 +1,60 @@
 export const profile = {
   name: 'Mark Evander J. Bayona',
-  title: 'AI & Business Systems Specialist | Workflow Automation Consultant',
+  title: 'AI Automation Specialist',
   email: 'markevanderbayona@gmail.com',
   linkedin: 'linkedin.com/in/markbayona',
   linkedinUrl: 'https://linkedin.com/in/markbayona',
   upworkUrl: 'https://www.upwork.com/freelancers/~0130f36d461a823fdd?mp_source=share',
   onlineJobsUrl: 'https://v2.onlinejobs.ph/jobseekers/info/4486544',
+  resumeUrl: 'https://docs.google.com/document/d/1HBTvXdsgc_iFS0HMr8YHZTav1ZfXphmdE3W14NWo-R0/preview',
   location: 'Bulacan, Philippines',
 }
 
 export const nav = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'Gallery', href: '#gallery' },
+  { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
+  { label: 'About', href: '#about' },
   { label: 'Stack', href: '#stack' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export const services = [
   {
-    title: 'AI Workflow Automation',
-    problem: 'Teams lose hours to repetitive, manual tasks that never end.',
-    solution: 'I map your process and automate it end-to-end with AI and no-code tools.',
-    outcome: 'Reclaim hours every week and remove human error from routine work.',
+    title: 'AI Workflow & Operations Automation',
+    problem: 'Repetitive tasks, handoffs, and weekly reports eat hours and depend on someone remembering to act.',
+    solution: 'I map the process end-to-end, then automate it — data pulls, formatting, delivery, and internal handoffs included.',
+    outcome: 'Routine work runs itself, consistently, without supervision.',
     icon: 'Workflow',
   },
   {
-    title: 'CRM Automation (GoHighLevel)',
-    problem: 'Leads slip through the cracks and follow-ups happen too late.',
-    solution: 'Automated pipelines, tagging, and nurture sequences inside GoHighLevel.',
-    outcome: 'Every lead is captured, nurtured, and followed up automatically.',
-    icon: 'Users',
-  },
-  {
-    title: 'Lead Generation Automation',
-    problem: 'Prospecting and qualifying leads eats up your sales team’s day.',
-    solution: 'Workflows that enrich, score, and route leads to the right person.',
-    outcome: 'Your team spends time closing, not researching.',
-    icon: 'Target',
-  },
-  {
-    title: 'AI Chatbots',
-    problem: 'Customers wait too long for answers to common questions.',
-    solution: 'Context-aware chatbots with memory and knowledge retrieval.',
-    outcome: '24/7 instant responses that resolve routine inquiries on their own.',
+    title: 'AI Chatbots & Customer Response',
+    problem: 'Customers message at all hours, and slow replies cost bookings and sales.',
+    solution: 'Context-aware chatbots with memory and a grounded knowledge base, connected to your real booking and escalation flow.',
+    outcome: 'Instant, accurate responses 24/7 — with humans looped in only when needed.',
     icon: 'MessagesSquare',
   },
   {
-    title: 'Appointment Scheduling',
-    problem: 'Manual booking and confirmations create back-and-forth and no-shows.',
-    solution: 'Automated scheduling, reminders, and confirmations.',
-    outcome: 'Fuller calendars with fewer no-shows and zero manual coordination.',
+    title: 'CRM & Lead Automation (GoHighLevel)',
+    problem: 'Leads slip through the cracks — unenriched, unprioritized, and followed up too late.',
+    solution: 'Pipelines, tagging, enrichment, and nurture sequences that capture, score, and route every lead automatically.',
+    outcome: 'Every lead answered fast; your team spends time closing, not researching.',
+    icon: 'Users',
+  },
+  {
+    title: 'Booking & Scheduling Systems',
+    problem: 'Manual booking creates back-and-forth, missed reminders, and no-shows.',
+    solution: 'Automated scheduling, confirmations, reminders, and cancellation handling — synced to one source of truth.',
+    outcome: 'Fuller calendars, fewer no-shows, zero manual coordination.',
     icon: 'CalendarClock',
   },
   {
-    title: 'Business Process Mapping',
-    problem: 'You know work is inefficient but can’t see exactly where.',
-    solution: 'I document your operations end-to-end to expose the real bottlenecks.',
-    outcome: 'A clear blueprint of what to automate first for the biggest impact.',
+    title: 'Process Mapping & AI Consulting',
+    problem: 'You know work is inefficient, but not where — or where AI actually fits.',
+    solution: 'I document your operations end-to-end, expose the real bottlenecks, and build a realistic automation roadmap.',
+    outcome: 'A clear blueprint of what to automate first for the biggest impact — no hype.',
     icon: 'GitBranch',
-  },
-  {
-    title: 'Reporting Automation',
-    problem: 'Weekly reports are assembled by hand from scattered sources.',
-    solution: 'Automated data extraction, formatting, and delivery.',
-    outcome: 'Consistent reports delivered on schedule with no manual effort.',
-    icon: 'BarChart3',
-  },
-  {
-    title: 'Internal Operations Automation',
-    problem: 'Handoffs and internal tasks depend on someone remembering to act.',
-    solution: 'Trigger-based workflows that move work forward automatically.',
-    outcome: 'Smoother operations that run without constant supervision.',
-    icon: 'Cog',
-  },
-  {
-    title: 'Prompt Engineering',
-    problem: 'AI tools give inconsistent results without the right instructions.',
-    solution: 'Carefully engineered prompts tuned to your specific use cases.',
-    outcome: 'Reliable, high-quality AI output you can build workflows on.',
-    icon: 'Sparkles',
-  },
-  {
-    title: 'AI Consulting',
-    problem: 'It’s hard to know where AI actually fits in your business.',
-    solution: 'Practical guidance grounded in real operations experience.',
-    outcome: 'A focused, realistic automation roadmap — no hype.',
-    icon: 'Lightbulb',
   },
 ]
 
@@ -104,13 +70,13 @@ export const projects = [
     accent: 'from-sky-500/15',
   },
   {
-    name: 'Facebook Messenger AI Agent',
-    problem: 'Businesses struggle to answer customer inquiries quickly enough.',
+    name: 'Smart Lead Routing & AI Follow-Up',
+    problem: 'Every new lead required manual research, prioritization, and a hand-written first reply — slow enough that hot leads went cold before anyone responded.',
     solution:
-      'Built a context-aware AI chatbot with conversation memory and knowledge retrieval that handles customer conversations automatically.',
-    workflow: ['Incoming message', 'Understand intent', 'Retrieve knowledge', 'Respond', 'Escalate if needed'],
-    tools: ['n8n', 'Google Gemini', 'Facebook Graph API', 'Webhooks'],
-    impact: 'Handles routine customer inquiries automatically, day or night, without waiting on a live agent.',
+      'Built a Zapier workflow that enriches each form submission with company and contact data via Apollo, routes leads by priority, logs high-priority leads to Google Sheets with an instant Slack alert to the sales team, and sends an AI-drafted, personalized follow-up email automatically. Lower-priority leads route straight to a sales team notification.',
+    workflow: ['Form submission', 'Enrich via Apollo', 'Route by priority', 'Slack alert + log', 'AI-drafted email sent'],
+    tools: ['Zapier', 'Apollo', 'AI by Zapier', 'Google Sheets', 'Slack', 'Gmail'],
+    impact: 'Turns a raw form fill into an enriched, prioritized, personally-answered lead within minutes — with no human touch needed before the first reply.',
     accent: 'from-teal-500/15',
   },
   {
@@ -138,16 +104,14 @@ export const projects = [
 export const processSteps = [
   { title: 'Discovery', desc: 'Understand your goals, pain points, and where time is being lost.', icon: 'Search' },
   { title: 'Process Mapping', desc: 'Document your workflow end-to-end to expose the real bottlenecks.', icon: 'GitBranch' },
-  { title: 'Solution Design', desc: 'Design the automation architecture around your specific tools.', icon: 'PenTool' },
-  { title: 'Build', desc: 'Build the workflows and integrations that do the work for you.', icon: 'Hammer' },
-  { title: 'Testing', desc: 'Validate every path and edge case before anything goes live.', icon: 'FlaskConical' },
-  { title: 'Deployment', desc: 'Roll the automation into your live operations with confidence.', icon: 'Rocket' },
-  { title: 'Optimization', desc: 'Monitor, refine, and expand as your business grows.', icon: 'TrendingUp' },
+  { title: 'Design & Build', desc: 'Architect the automation around your tools, then build the workflows that do the work.', icon: 'Hammer' },
+  { title: 'Test & Launch', desc: 'Validate every path and edge case, then roll it into live operations.', icon: 'Rocket' },
+  { title: 'Optimize', desc: 'Monitor, refine, and expand as your business grows.', icon: 'TrendingUp' },
 ]
 
 export const techStack = [
   { category: 'AI', items: ['ChatGPT', 'Gemini', 'Claude'] },
-  { category: 'Automation', items: ['Zapier', 'Make', 'n8n'] },
+  { category: 'Automation', items: ['n8n', 'Zapier', 'Make'] },
   { category: 'CRM', items: ['GoHighLevel'] },
   { category: 'Integrations', items: ['Calendly', 'Slack', 'Xero', 'Apollo', 'Gmail', 'Google Drive', 'Facebook Graph API'] },
   { category: 'Productivity', items: ['Google Workspace', 'Microsoft 365', 'Notion', 'Asana'] },
@@ -155,19 +119,13 @@ export const techStack = [
 ]
 
 export const industries = [
-  'Marketing Agencies',
-  'Coaches',
-  'Consultants',
-  'Auto Detailing Businesses',
-  'Construction Companies',
+  'Clinics & Wellness',
   'Local Service Businesses',
-  'Startups',
-  'BPO Operations',
+  'BPO & Operations Teams',
 ]
 
 export const aboutPoints = [
-  'Former Workforce Management Specialist and Real-Time Analyst with hands-on experience optimizing operations and performance for 150+ agent teams.',
-  'Experienced in process improvement, capacity planning, reporting, workforce analytics, and operational efficiency.',
-  'Business owner with hands-on experience managing service operations and logistics.',
-  'Now focused on helping businesses automate repetitive work using AI and no-code automation.',
+  'Monitored real-time performance and staffing for 150+ agent teams as a Workforce Management Specialist and Real-Time Analyst.',
+  'Owned and co-owned three service businesses — a cyber café, an auto detailing shop, and a mobile auto aesthetics service.',
+  'Trained in No-Code Automation (Zapier, Make, n8n), Prompt Engineering, Process Mapping, and GoHighLevel CRM at Tara AI Studios.',
 ]

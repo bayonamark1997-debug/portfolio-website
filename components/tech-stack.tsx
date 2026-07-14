@@ -46,11 +46,11 @@ export function TechStack() {
                 Who I work with.
               </h2>
             </Reveal>
-            <div className="mt-8 grid grid-cols-2 gap-3">
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {industries.map((industry, i) => (
                 <Reveal
                   key={industry}
-                  delay={(i % 2) * 60}
+                  delay={i * 60}
                   className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">

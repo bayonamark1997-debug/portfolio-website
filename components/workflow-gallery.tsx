@@ -147,6 +147,9 @@ export function WorkflowGallery() {
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
             A growing library of automation screenshots — pick a tool to see what I&apos;ve built with it.
           </p>
+          <p className="mt-2 text-sm text-muted-foreground/80">
+            This gallery is itself powered by an automation — it loads live from a Google Sheet.
+          </p>
         </Reveal>
 
         {status === 'loading' && (

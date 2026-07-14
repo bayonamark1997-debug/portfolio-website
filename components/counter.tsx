@@ -21,15 +21,14 @@ export function Counter({
   decimals?: number
   delayMs?: number
 }) {
-  const isNumber = typeof value === 'number'
-
-  const [display, setDisplay] = useState(isNumber ? 0 : value)
+  // Initialize at the FINAL value so server-rendered HTML, crawlers, and
+  // no-JS visitors see the real number (e.g. "100%"), never "0%".
+  // The count-up animation resets to 0 only when the element scrolls into view.
+  const [display, setDisplay] = useState(value)
   const ref = useRef<HTMLSpanElement | null>(null)
   const started = useRef(false)
 
   useEffect(() => {
-    if (!isNumber) return
-
     const el = ref.current
     if (!el) return
 
@@ -63,12 +62,12 @@ export function Counter({
     observer.observe(el)
 
     return () => observer.disconnect()
-  }, [value, duration, isNumber, decimals, delayMs])
+  }, [value, duration, decimals, delayMs])
 
   return (
     <span ref={ref}>
-      {isNumber ? formatValue(display, decimals) : display}
-      {isNumber && suffix}
+      {formatValue(display, decimals)}
+      {suffix}
     </span>
   )
 }

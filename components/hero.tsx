@@ -2,7 +2,7 @@
 
 import { HighlightCards } from '@/components/highlight-cards'
 import Image from 'next/image'
-import { ArrowRight, Sparkles, Bot, Workflow, Zap, MessagesSquare, GitBranch } from 'lucide-react'
+import { ArrowRight, ArrowDown, Sparkles, Bot, Workflow, Zap, MessagesSquare, GitBranch } from 'lucide-react'
 import { RippleButton } from '@/components/ripple-button'
 import { profile } from '@/lib/portfolio-data'
 import { openCalendly } from '@/lib/calendly'
@@ -43,15 +43,13 @@ export function Hero() {
             </span>
 
             <h1 className="mt-6 text-balance font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.6rem]">
-              I Help Businesses Understand Their Operations and{' '}
-              <span className="text-primary"> Build AI Systems</span>{' '}
-              That Save Time.
+              AI automation built by someone who&apos;s{' '}
+              <span className="text-primary">actually run business operations.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Every business works differently. Before I build any automation, I take the time to understand
-              your workflow, identify repetitive tasks, and design AI-powered systems that save time, improve
-              customer experience, and help your business scale with confidence.
+              Former workforce management analyst and small-business owner. I design automations
+              around how your business really works — not around the software.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -62,13 +60,12 @@ export function Hero() {
                 </span>
               </RippleButton>
 
-              <a
-                href="https://docs.google.com/document/d/1HBTvXdsgc_iFS0HMr8YHZTav1ZfXphmdE3W14NWo-R0/preview"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#work">
                 <RippleButton>
-                  View Resume
+                  <span className="group inline-flex items-center gap-2">
+                    See My Work
+                    <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+                  </span>
                 </RippleButton>
               </a>
             </div>
@@ -93,7 +90,7 @@ export function Hero() {
                   <div className="size-full overflow-hidden rounded-full border-4 border-background bg-card shadow-2xl">
                     <Image
                       src="/light-real.png"
-                      alt={`Portrait of ${profile.name}, AI & Business Systems Specialist`}
+                      alt={`Portrait of ${profile.name}, AI Automation Specialist`}
                       width={400}
                       height={400}
                       priority
@@ -102,7 +99,7 @@ export function Hero() {
 
                     <Image
                       src="/dark-animation.png"
-                      alt={`Portrait of ${profile.name}, AI & Business Systems Specialist`}
+                      alt={`Portrait of ${profile.name}, AI Automation Specialist`}
                       width={400}
                       height={400}
                       priority

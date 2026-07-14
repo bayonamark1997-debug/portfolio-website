@@ -23,7 +23,7 @@ const icons: Record<string, LucideIcon> = {
 
 export function ProcessTimeline() {
   return (
-    <section id="process" className="scroll-mt-24 bg-navy py-16 text-white">
+    <section id="process" className="scroll-mt-24 bg-navy py-20 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-blue-400">
@@ -33,7 +33,7 @@ export function ProcessTimeline() {
             A clear, proven path from problem to results.
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-white/60">
-            Every project follows the same disciplined process — so you always know what happens
+            Every project follows the same disciplined process, so you always know what happens
             next.
           </p>
         </Reveal>

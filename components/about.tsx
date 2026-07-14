@@ -10,7 +10,7 @@ const strengths = [
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-24">
+    <section id="about" className="scroll-mt-24 py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <Reveal className="text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">About Me</p>
@@ -18,7 +18,7 @@ export function About() {
             Operations experience meets practical automation.
           </h2>
           <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-            I spent years inside operations — analyzing performance, planning capacity, and fixing
+            I spent years inside operations, analyzing performance, planning capacity, and fixing
             the bottlenecks that slow businesses down. Now I use AI and no-code automation to remove
             those bottlenecks entirely, building workflows around the operational problems
             they&apos;re meant to solve.

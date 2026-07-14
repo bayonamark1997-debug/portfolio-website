@@ -18,11 +18,11 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: 'Mark Evander J. Bayona — AI Automation Specialist',
+  title: 'Mark Evander J. Bayona | AI Automation Specialist',
   description:
     'I build AI automation systems that save businesses hours every week. Workflow automation, CRM automation, AI chatbots, and process optimization using Zapier, Make, n8n, and GoHighLevel.',
   openGraph: {
-    title: 'Mark Evander J. Bayona — AI Automation Specialist',
+    title: 'Mark Evander J. Bayona | AI Automation Specialist',
     description:
       'AI automation systems that save businesses hours every week. Workflow automation, CRM automation, and AI chatbots.',
     type: 'website',

@@ -34,7 +34,7 @@ const remainder = services.slice(fullRowCount)
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-24 bg-secondary/40 py-24">
+    <section id="services" className="scroll-mt-24 bg-secondary/40 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">Services</p>
@@ -43,19 +43,19 @@ export function Services() {
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
             You don&apos;t need more software. You need someone who finds out where your time is
-            actually going — then removes it.
+            actually going, then removes it.
           </p>
         </Reveal>
 
         <div className="mt-14">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {fullRows.map((service, i) => {
             const Icon = icons[service.icon] ?? Sparkles
             return (
               <Reveal
                 key={service.title}
                 delay={(i % 3) * 90}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl"
+                className="group relative flex h-full w-full flex-col self-stretch overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl"
               >
                 <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
@@ -91,7 +91,7 @@ export function Services() {
                   <Reveal
                     key={service.title}
                     delay={((fullRows.length + i) % 3) * 90}
-                    className="group relative flex h-full w-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)]"
+                    className="group relative flex w-full flex-col self-stretch overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)]"
                   >
                     <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">

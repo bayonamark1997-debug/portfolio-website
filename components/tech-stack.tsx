@@ -4,7 +4,7 @@ import { Building2 } from 'lucide-react'
 
 export function TechStack() {
   return (
-    <section id="stack" className="scroll-mt-24 py-24">
+    <section id="stack" className="scroll-mt-24 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           {/* Tech stack */}

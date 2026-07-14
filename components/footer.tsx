@@ -24,7 +24,7 @@ export function Footer() {
               {profile.name}
             </div>
             <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
-              AI Automation Specialist based in Bulacan, Philippines — practical automation for
+              AI Automation Specialist based in Bulacan, Philippines. Practical automation for
               clinics, local service businesses, and operations teams.
             </p>
             <div className="mt-5 flex gap-3">

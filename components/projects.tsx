@@ -4,7 +4,7 @@ import { projects } from '@/lib/portfolio-data'
 
 export function Projects() {
   return (
-    <section id="work" className="scroll-mt-24 py-24">
+    <section id="work" className="scroll-mt-24 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">Case Studies</p>

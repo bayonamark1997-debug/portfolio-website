@@ -25,7 +25,7 @@ const cards = [
     suffix: '+',
     title: 'Workflows Built',
     description:
-      'Across n8n, Zapier, Make, and GoHighLevel — chatbots to booking systems.',
+      'Across n8n, Zapier, Make, and GoHighLevel, from chatbots to booking systems.',
   },
   {
     icon: Plug,

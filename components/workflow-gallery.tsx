@@ -140,7 +140,7 @@ export function WorkflowGallery() {
   }, [lightboxGroup])
 
   return (
-    <section id="gallery" className="scroll-mt-24 py-24">
+    <section id="gallery" className="scroll-mt-24 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">Workflow Library</p>
@@ -148,10 +148,10 @@ export function WorkflowGallery() {
             Browse real workflow builds by tool.
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            A growing library of automation screenshots — pick a tool to see what I&apos;ve built with it.
+            A growing library of automation screenshots. Pick a tool to see what I&apos;ve built with it.
           </p>
           <p className="mt-2 text-sm text-muted-foreground/80">
-            This gallery is itself powered by an automation — it loads live from a Google Sheet.
+            This gallery is itself powered by an automation: it loads live from a Google Sheet.
           </p>
         </Reveal>
 

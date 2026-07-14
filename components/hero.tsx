@@ -17,7 +17,7 @@ const floatingIcons = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pb-28 pt-36 sm:pt-44">
+    <section id="top" className="relative overflow-hidden pb-16 pt-36 sm:pt-44">
       {/* ambient background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-24 top-10 size-[28rem] rounded-full bg-primary/10 blur-3xl animate-blob-drift" />
@@ -49,7 +49,7 @@ export function Hero() {
 
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
               Former workforce management analyst and small-business owner. I design automations
-              around how your business really works — not around the software.
+              around how your business really works, not around the software.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

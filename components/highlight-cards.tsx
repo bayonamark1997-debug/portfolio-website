@@ -39,7 +39,7 @@ const cards = [
     icon: Store,
     value: 3,
     suffix: '',
-    title: 'Businesses Owned or Co-Owned',
+    title: 'Businesses Run',
     description:
       'I automate with an owner\u2019s instinct for where time and money leak.',
   },

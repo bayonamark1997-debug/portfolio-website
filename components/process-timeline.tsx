@@ -1,9 +1,7 @@
 import {
   Search,
   GitBranch,
-  PenTool,
   Hammer,
-  FlaskConical,
   Rocket,
   TrendingUp,
   type LucideIcon,
@@ -14,16 +12,14 @@ import { processSteps } from '@/lib/portfolio-data'
 const icons: Record<string, LucideIcon> = {
   Search,
   GitBranch,
-  PenTool,
   Hammer,
-  FlaskConical,
   Rocket,
   TrendingUp,
 }
 
 export function ProcessTimeline() {
   return (
-    <section id="process" className="scroll-mt-24 bg-navy py-20 text-white">
+    <section id="process" className="scroll-mt-24 bg-navy py-16 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-blue-400">

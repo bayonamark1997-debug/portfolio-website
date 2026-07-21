@@ -1,10 +1,11 @@
 import { ArrowRight, TrendingUp, Wrench, CircleAlert, Sparkles } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { projects } from '@/lib/portfolio-data'
+import { WorkflowGallery } from '@/components/workflow-gallery'
 
 export function Projects() {
   return (
-    <section id="work" className="scroll-mt-24 py-20">
+    <section id="work" className="scroll-mt-24 py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">Case Studies</p>
@@ -13,7 +14,8 @@ export function Projects() {
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
             A look at the problems I&apos;ve solved, how I solved them, and the impact on the
-            business.
+            business. Built through hands-on training and self-directed practice on real business
+            scenarios.
           </p>
         </Reveal>
 
@@ -102,6 +104,8 @@ export function Projects() {
             </Reveal>
           ))}
         </div>
+
+        <WorkflowGallery />
       </div>
     </section>
   )

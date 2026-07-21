@@ -10,6 +10,7 @@ import {
   Sparkles,
   Lightbulb,
   ArrowRight,
+  CircleAlert,
   type LucideIcon,
 } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
@@ -34,7 +35,7 @@ const remainder = services.slice(fullRowCount)
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-24 bg-secondary/40 py-20">
+    <section id="services" className="scroll-mt-24 bg-secondary/40 py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">Services</p>
@@ -63,16 +64,16 @@ export function Services() {
                 </span>
                 <h3 className="mt-5 text-lg font-semibold tracking-tight">{service.title}</h3>
 
-                <dl className="mt-4 space-y-3 text-sm">
-                  <div>
-                    <dt className="font-semibold text-foreground/60">Problem</dt>
-                    <dd className="mt-0.5 leading-relaxed text-muted-foreground">{service.problem}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-foreground/60">Solution</dt>
-                    <dd className="mt-0.5 leading-relaxed text-muted-foreground">{service.solution}</dd>
-                  </div>
-                </dl>
+                <div className="mt-4 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                  <p className="flex items-start gap-2">
+                    <CircleAlert className="mt-0.5 size-4 shrink-0 text-foreground/40" aria-hidden="true" />
+                    <span>{service.problem}</span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <Sparkles className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                    <span>{service.solution}</span>
+                  </p>
+                </div>
 
                 <div className="mt-auto flex items-start gap-2 pt-5 text-sm font-medium text-primary">
                   <ArrowRight className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
@@ -99,16 +100,16 @@ export function Services() {
                     </span>
                     <h3 className="mt-5 text-lg font-semibold tracking-tight">{service.title}</h3>
 
-                    <dl className="mt-4 space-y-3 text-sm">
-                      <div>
-                        <dt className="font-semibold text-foreground/60">Problem</dt>
-                        <dd className="mt-0.5 leading-relaxed text-muted-foreground">{service.problem}</dd>
-                      </div>
-                      <div>
-                        <dt className="font-semibold text-foreground/60">Solution</dt>
-                        <dd className="mt-0.5 leading-relaxed text-muted-foreground">{service.solution}</dd>
-                      </div>
-                    </dl>
+                    <div className="mt-4 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                      <p className="flex items-start gap-2">
+                        <CircleAlert className="mt-0.5 size-4 shrink-0 text-foreground/40" aria-hidden="true" />
+                        <span>{service.problem}</span>
+                      </p>
+                      <p className="flex items-start gap-2">
+                        <Sparkles className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                        <span>{service.solution}</span>
+                      </p>
+                    </div>
 
                     <div className="mt-auto flex items-start gap-2 pt-5 text-sm font-medium text-primary">
                       <ArrowRight className="mt-0.5 size-4 shrink-0" aria-hidden="true" />

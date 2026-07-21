@@ -2,22 +2,21 @@
 
 import { HighlightCards } from '@/components/highlight-cards'
 import Image from 'next/image'
-import { ArrowRight, ArrowDown, Sparkles, Bot, Workflow, Zap, MessagesSquare, GitBranch } from 'lucide-react'
+import { ArrowRight, Sparkles, Bot, Workflow, Cog, MessagesSquare } from 'lucide-react'
 import { RippleButton } from '@/components/ripple-button'
 import { profile } from '@/lib/portfolio-data'
 import { openCalendly } from '@/lib/calendly'
 
 const floatingIcons = [
-  { Icon: Zap, className: 'left-[6%] top-[14%] animate-float-slow', size: 'size-5' },
+  { Icon: Cog, className: 'left-[6%] top-[14%] animate-float-slow', size: 'size-5' },
   { Icon: Bot, className: 'right-[10%] top-[8%] animate-float-med', size: 'size-6' },
   { Icon: Workflow, className: 'left-[12%] bottom-[20%] animate-float-med', size: 'size-5' },
   { Icon: MessagesSquare, className: 'right-[6%] bottom-[24%] animate-float-slow', size: 'size-5' },
-  { Icon: GitBranch, className: 'right-[38%] top-[6%] animate-float-slow', size: 'size-4' },
 ]
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pb-16 pt-36 sm:pt-44">
+    <section id="top" className="relative overflow-hidden pb-16 pt-24 sm:pt-28">
       {/* ambient background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-24 top-10 size-[28rem] rounded-full bg-primary/10 blur-3xl animate-blob-drift" />
@@ -43,8 +42,8 @@ export function Hero() {
             </span>
 
             <h1 className="mt-6 text-balance font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.6rem]">
-              AI automation built by someone who&apos;s actually run{' '}
-              <span className="text-primary">business operations.</span>
+              AI automation built by someone who&apos;s{' '}
+              <span className="text-primary">actually run business operations.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -59,15 +58,6 @@ export function Hero() {
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </RippleButton>
-
-              <a href="#work">
-                <RippleButton>
-                  <span className="group inline-flex items-center gap-2">
-                    See My Work
-                    <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-                  </span>
-                </RippleButton>
-              </a>
             </div>
           </div>
 

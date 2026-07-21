@@ -52,7 +52,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-24 bg-secondary/40 py-20">
+    <section id="contact" className="scroll-mt-24 bg-secondary/40 py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">Contact</p>
@@ -84,7 +84,7 @@ export function Contact() {
                   className="inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-md transition-transform duration-300 hover:-translate-y-0.5"
                 >
                   <CalendarCheck className="size-4" aria-hidden="true" />
-                  Schedule Now
+                  Reserve Your Spot
                 </button>
               </div>
             </div>

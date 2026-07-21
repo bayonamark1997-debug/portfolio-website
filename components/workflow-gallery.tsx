@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { X, Loader2, ChevronLeft, ChevronRight, Wrench, Maximize2, LayoutGrid } from 'lucide-react'
+import { X, Loader2, ChevronLeft, ChevronRight, ChevronDown, Wrench, Maximize2, LayoutGrid } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 
 interface WorkflowRow {
@@ -20,10 +20,20 @@ interface WorkflowGroup {
 
 const CSV_URL = process.env.NEXT_PUBLIC_WORKFLOW_SHEET_CSV_URL || ''
 
+// Tool priority for the "All" view: one highlight per tool up front (in this
+// order), then everything else follows in the same tool order. Unlisted
+// tools fall to the end rather than breaking.
+const TOOL_ORDER = ['n8n', 'Zapier', 'Make', 'GoHighLevel']
+const toolRank = (tool: string) => {
+  const i = TOOL_ORDER.indexOf(tool)
+  return i === -1 ? TOOL_ORDER.length : i
+}
+
 export function WorkflowGallery() {
   const [groups, setGroups] = useState<WorkflowGroup[]>([])
   const [status, setStatus] = useState<'loading' | 'ready' | 'error' | 'empty'>('loading')
   const [activeTool, setActiveTool] = useState<string | null>(null)
+  const [expanded, setExpanded] = useState(false)
   const [lightboxGroup, setLightboxGroup] = useState<WorkflowGroup | null>(null)
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
@@ -89,11 +99,45 @@ export function WorkflowGallery() {
       .catch(() => setStatus('error'))
   }, [])
 
-  const tools = ['All', ...Array.from(new Set(groups.map((g) => g.tool)))]
-  const filtered = activeTool === 'All' ? groups : groups.filter((g) => g.tool === activeTool)
-  const galleryFullRowCount = Math.floor(filtered.length / 3) * 3
-  const galleryFullRows = filtered.slice(0, galleryFullRowCount)
-  const galleryRemainder = filtered.slice(galleryFullRowCount)
+  const tools = [
+    'All',
+    ...Array.from(new Set(groups.map((g) => g.tool))).sort((a, b) => toolRank(a) - toolRank(b)),
+  ]
+
+  // For "All": collapsed view shows one highlight per tool (in priority
+  // order) so visitors immediately see range across tools. Once expanded,
+  // each tool's cards sit together as one block, in the same tool order,
+  // rather than scattering a tool's cards across two spots in the list.
+  let visible: WorkflowGroup[]
+  let totalCount: number
+  let hasMore: boolean
+
+  if (activeTool === 'All') {
+    const byTool = new Map<string, WorkflowGroup[]>()
+    for (const g of groups) {
+      if (!byTool.has(g.tool)) byTool.set(g.tool, [])
+      byTool.get(g.tool)!.push(g)
+    }
+    const toolsPresent = Array.from(byTool.keys()).sort((a, b) => toolRank(a) - toolRank(b))
+    const highlights = toolsPresent.map((t) => byTool.get(t)![0])
+    const groupedAll = toolsPresent.flatMap((t) => byTool.get(t)!)
+
+    totalCount = groupedAll.length
+    visible = expanded ? groupedAll : highlights
+    hasMore = !expanded && totalCount > highlights.length
+  } else {
+    const toolItems = groups.filter((g) => g.tool === activeTool)
+    const PREVIEW_LIMIT = 3
+    totalCount = toolItems.length
+    visible = expanded ? toolItems : toolItems.slice(0, PREVIEW_LIMIT)
+    hasMore = !expanded && totalCount > PREVIEW_LIMIT
+  }
+
+  const remainingCount = totalCount - visible.length
+
+  const galleryFullRowCount = Math.floor(visible.length / 3) * 3
+  const galleryFullRows = visible.slice(0, galleryFullRowCount)
+  const galleryRemainder = visible.slice(galleryFullRowCount)
 
   const openLightbox = (group: WorkflowGroup) => {
     setLightboxGroup(group)
@@ -140,22 +184,15 @@ export function WorkflowGallery() {
   }, [lightboxGroup])
 
   return (
-    <section id="gallery" className="scroll-mt-24 py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">Workflow Library</p>
-          <h2 className="mt-3 text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-            Browse real workflow builds by tool.
-          </h2>
-          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            A growing library of automation screenshots. Pick a tool to see what I&apos;ve built with it.
-          </p>
-          <p className="mt-2 text-sm text-muted-foreground/80">
-            This gallery is itself powered by an automation: it loads live from a Google Sheet.
-          </p>
-        </Reveal>
+    <div id="gallery" className="mt-16 scroll-mt-24">
+      <Reveal className="mx-auto max-w-2xl border-t border-border pt-10 text-center">
+        <p className="text-sm font-semibold uppercase tracking-wider text-primary">More Builds</p>
+        <h3 className="mt-2 text-balance font-serif text-xl font-semibold tracking-tight sm:text-2xl">
+          Browse the workflow library by tool.
+        </h3>
+      </Reveal>
 
-        {status === 'loading' && (
+      {status === 'loading' && (
           <div className="mt-14 flex flex-col items-center justify-center gap-3 text-muted-foreground">
             <Loader2 className="size-6 animate-spin" aria-hidden="true" />
             <p className="text-sm">Loading workflows…</p>
@@ -180,7 +217,10 @@ export function WorkflowGallery() {
               {tools.map((tool) => (
                 <button
                   key={tool}
-                  onClick={() => setActiveTool(tool)}
+                  onClick={() => {
+                    setActiveTool(tool)
+                    setExpanded(false)
+                  }}
                   className={`inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-semibold transition-all duration-300 ${
                     activeTool === tool
                       ? 'border-primary bg-primary text-primary-foreground shadow-md'
@@ -216,10 +256,21 @@ export function WorkflowGallery() {
                   ))}
                 </div>
               )}
+
+              {hasMore && (
+                <div className="mt-8 flex justify-center">
+                  <button
+                    onClick={() => setExpanded(true)}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+                  >
+                    Show {remainingCount} More Workflows
+                    <ChevronDown className="size-4" aria-hidden="true" />
+                  </button>
+                </div>
+              )}
             </div>
           </>
         )}
-      </div>
 
       {lightboxGroup && (
         <div
@@ -289,7 +340,7 @@ export function WorkflowGallery() {
           </div>
         </div>
       )}
-    </section>
+    </div>
   )
 }
 

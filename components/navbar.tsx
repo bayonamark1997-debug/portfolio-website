@@ -11,6 +11,7 @@ import { openCalendly } from '@/lib/calendly'
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [pastHero, setPastHero] = useState(false)
+  const [inContact, setInContact] = useState(false)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -25,6 +26,21 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const contactEl = document.getElementById('contact')
+    if (!contactEl) return
+    // Same idea as pastHero: hide the nav CTA while the Contact section's
+    // own "Reserve Your Spot" button is on screen, so they never double up.
+    const observer = new IntersectionObserver(
+      ([entry]) => setInContact(entry.isIntersecting),
+      { rootMargin: '-100px 0px -60% 0px', threshold: 0 },
+    )
+    observer.observe(contactEl)
+    return () => observer.disconnect()
+  }, [])
+
+  const showNavCta = pastHero && !inContact
+
   return (
     <header
       className={cn(
@@ -34,15 +50,15 @@ export function Navbar() {
     >
       <nav
         className={cn(
-          'mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 transition-all duration-300 sm:px-6',
-          scrolled ? 'glass border border-border/70 py-2.5 shadow-sm' : 'py-1',
+          'transform-gpu mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 transition-all duration-300 sm:px-6',
+          scrolled ? 'border border-border/70 bg-card py-2.5 shadow-sm' : 'py-1',
         )}
       >
         <a href="#top" className="flex items-center gap-2.5 font-semibold tracking-tight">
           <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Zap className="size-4" aria-hidden="true" />
           </span>
-          <span className="text-[0.95rem]">{profile.name}</span>
+          <span className="whitespace-nowrap text-[0.95rem]">{profile.shortName}</span>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -63,7 +79,7 @@ export function Navbar() {
             onClick={openCalendly}
             className={cn(
               'overflow-hidden px-5 py-2.5 transition-all duration-300',
-              pastHero ? 'max-w-xs opacity-100' : 'pointer-events-none max-w-0 px-0 opacity-0',
+              showNavCta ? 'max-w-xs opacity-100' : 'pointer-events-none max-w-0 px-0 opacity-0',
             )}
           >
             <span className="whitespace-nowrap">Book a Discovery Call</span>

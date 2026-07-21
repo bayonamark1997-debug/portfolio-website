@@ -67,7 +67,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* nav links, rebalanced 4 + 3, no orphan */}
+          {/* nav links, split evenly 4 + 4 */}
           <nav className="grid grid-cols-2 gap-x-14 gap-y-2" aria-label="Footer">
             <div className="flex flex-col gap-2">
               {navCol1.map((item) => (

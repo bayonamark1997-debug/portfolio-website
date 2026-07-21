@@ -156,6 +156,14 @@ export const techStack = [
       { name: 'Asana', description: 'A project management tool used to deliver reports and track automated tasks.' },
     ],
   },
+  {
+    category: 'Content & Design',
+    items: [
+      { name: 'DaVinci Resolve', description: 'Video editing software used to produce and edit social media content for WadeCo Auto Aesthetics.' },
+      { name: 'CapCut', description: 'Mobile video editor used for quick-turnaround social media content.' },
+      { name: 'Canva', description: 'Design tool used for social media graphics, carousels, and educational content.' },
+    ],
+  },
 ]
 
 export const industries = [

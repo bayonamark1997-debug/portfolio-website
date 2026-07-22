@@ -13,7 +13,7 @@ export function About() {
           <h2 className="mt-3 text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
             Operations experience meets practical automation.
           </h2>
-          <p className="mt-6 text-pretty text-left text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 text-pretty text-center text-lg leading-relaxed text-muted-foreground sm:text-left">
             Between workforce management and running my own businesses, I&apos;ve spent time inside
             operations, analyzing performance, planning capacity, and fixing the bottlenecks that
             slow businesses down. Now I use AI and no-code automation to remove those bottlenecks

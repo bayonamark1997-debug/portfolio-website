@@ -1,7 +1,7 @@
 import { ArrowRight, TrendingUp, Wrench, CircleAlert, Sparkles } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { projects } from '@/lib/portfolio-data'
-import { WorkflowGallery } from '@/components/workflow-gallery'
+import { GalleryPreview } from '@/components/gallery-preview'
 
 export function Projects() {
   return (
@@ -105,7 +105,7 @@ export function Projects() {
           ))}
         </div>
 
-        <WorkflowGallery />
+        <GalleryPreview />
       </div>
     </section>
   )

@@ -51,7 +51,7 @@ export function Navbar() {
       <nav
         className={cn(
           'transform-gpu mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 transition-all duration-300 sm:px-6',
-          scrolled ? 'border border-border/70 bg-card py-2.5 shadow-sm' : 'py-1',
+          scrolled ? 'glass border border-border/70 py-2.5 shadow-sm' : 'py-1',
         )}
       >
         <a href="#top" className="flex items-center gap-2.5 font-semibold tracking-tight">

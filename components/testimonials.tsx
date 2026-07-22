@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { Quote } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { testimonials } from '@/lib/portfolio-data'
@@ -14,6 +15,10 @@ function getInitials(name: string) {
 export function Testimonials() {
   // Render the track twice back to back so the loop scrolls seamlessly.
   const loopItems = [...testimonials, ...testimonials]
+  // Desktop pauses on hover via CSS. Touch devices have no hover, so press
+  // and hold pauses instead, release resumes automatically — no toggle
+  // state to get stuck in.
+  const [pressPaused, setPressPaused] = useState(false)
 
   return (
     <section id="testimonials" className="scroll-mt-24 py-16">
@@ -37,7 +42,13 @@ export function Testimonials() {
                 'linear-gradient(to right, transparent, black 4%, black 96%, transparent)',
             }}
           >
-            <div className="marquee-track flex w-max gap-6">
+            <div
+              onTouchStart={() => setPressPaused(true)}
+              onTouchEnd={() => setPressPaused(false)}
+              onTouchCancel={() => setPressPaused(false)}
+              className="marquee-track flex w-max gap-6"
+              style={pressPaused ? { animationPlayState: 'paused' } : undefined}
+            >
               {loopItems.map((t, i) => (
                 <div
                   key={`${t.name}-${i}`}
@@ -67,6 +78,9 @@ export function Testimonials() {
               ))}
             </div>
           </div>
+          <p className="mt-4 text-center text-xs text-muted-foreground/70 sm:hidden">
+            Press and hold a card to pause
+          </p>
         </Reveal>
       </div>
     </section>

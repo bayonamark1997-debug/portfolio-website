@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { Quote } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { testimonials } from '@/lib/portfolio-data'
@@ -15,9 +14,6 @@ function getInitials(name: string) {
 export function Testimonials() {
   // Render the track twice back to back so the loop scrolls seamlessly.
   const loopItems = [...testimonials, ...testimonials]
-  // Hover pauses on desktop via CSS, but touch devices have no hover, so we
-  // also let a tap toggle this and force-pause via inline style.
-  const [tapPaused, setTapPaused] = useState(false)
 
   return (
     <section id="testimonials" className="scroll-mt-24 py-16">
@@ -41,21 +37,7 @@ export function Testimonials() {
                 'linear-gradient(to right, transparent, black 4%, black 96%, transparent)',
             }}
           >
-            <div
-              role="button"
-              tabIndex={0}
-              aria-pressed={tapPaused}
-              aria-label={tapPaused ? 'Resume testimonials' : 'Pause testimonials'}
-              onClick={() => setTapPaused((p) => !p)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  setTapPaused((p) => !p)
-                }
-              }}
-              className="marquee-track flex w-max cursor-pointer gap-6"
-              style={tapPaused ? { animationPlayState: 'paused' } : undefined}
-            >
+            <div className="marquee-track flex w-max gap-6">
               {loopItems.map((t, i) => (
                 <div
                   key={`${t.name}-${i}`}
@@ -85,9 +67,6 @@ export function Testimonials() {
               ))}
             </div>
           </div>
-          <p className="mt-4 text-center text-xs text-muted-foreground/70 sm:hidden">
-            Tap a card to pause
-          </p>
         </Reveal>
       </div>
     </section>

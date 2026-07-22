@@ -43,9 +43,10 @@ export function Testimonials() {
             }}
           >
             <div
-              onTouchStart={() => setPressPaused(true)}
-              onTouchEnd={() => setPressPaused(false)}
-              onTouchCancel={() => setPressPaused(false)}
+              onPointerDown={() => setPressPaused(true)}
+              onPointerUp={() => setPressPaused(false)}
+              onPointerLeave={() => setPressPaused(false)}
+              onPointerCancel={() => setPressPaused(false)}
               className="marquee-track flex w-max gap-6"
               style={pressPaused ? { animationPlayState: 'paused' } : undefined}
             >

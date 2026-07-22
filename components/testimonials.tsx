@@ -47,8 +47,11 @@ export function Testimonials() {
               onPointerUp={() => setPressPaused(false)}
               onPointerLeave={() => setPressPaused(false)}
               onPointerCancel={() => setPressPaused(false)}
-              className="marquee-track flex w-max gap-6"
-              style={pressPaused ? { animationPlayState: 'paused' } : undefined}
+              className="marquee-track flex w-max select-none gap-6"
+              style={{
+                WebkitTouchCallout: 'none',
+                ...(pressPaused ? { animationPlayState: 'paused' as const } : {}),
+              }}
             >
               {loopItems.map((t, i) => (
                 <div

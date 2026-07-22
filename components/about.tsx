@@ -15,10 +15,8 @@ export function About() {
           </h2>
           <p className="mt-6 text-pretty text-center text-lg leading-relaxed text-muted-foreground sm:text-left">
             Between workforce management and running my own businesses, I&apos;ve spent time inside
-            operations, analyzing performance, planning capacity, and fixing the bottlenecks that
-            slow businesses down. Now I use AI and no-code automation to remove those bottlenecks
-            entirely, building workflows around the operational problems they&apos;re meant to
-            solve.
+            operations: analyzing performance, planning capacity, and fixing bottlenecks. Now I use
+            AI and no-code automation to solve those same problems for other businesses.
           </p>
         </Reveal>
 

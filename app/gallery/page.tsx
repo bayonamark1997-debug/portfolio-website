@@ -50,7 +50,7 @@ export default function GalleryPage() {
         <section className="scroll-mt-24 pb-16 pt-28 sm:pt-32">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <Link
-              href="/#work"
+              href="/#gallery"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               <ArrowLeft className="size-4" aria-hidden="true" />
